@@ -163,6 +163,8 @@ features = [[income_range_encoded, education_level_encoded, parental_status_enco
 
 col1, col2, col3 = st.columns([1,2,1])
  
+with col1:
+
 with col2:
     if st.button('Prediction'):
         prediction = logistic_model.predict(features)
@@ -171,7 +173,7 @@ with col2:
         else:
             st.write('The person is unlikely to use LinkedIn.')
 
-
+with col3: 
 
 
  
