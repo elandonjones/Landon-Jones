@@ -175,7 +175,19 @@ with col2:
 
 with col3: 
 
+if st.button('Prediction'):
 
+    # Make prediction
+    prediction = logistic_model.predict(features)
+    
+    # Get predicted probabilities
+    proba = logistic_model.predict_proba(features)[0]
+    
+    # Show prediction  
+    if prediction[0] == 1:
+        st.write(f'The model predicts the person is likely to use LinkedIn, with a probability of {proba[1]:.2%}')
+    else:
+        st.write(f'The model predicts the person is unlikely to use LinkedIn, with a probability of {proba[0]:.2%}')
  
 
 
