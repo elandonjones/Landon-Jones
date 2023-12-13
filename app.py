@@ -92,7 +92,7 @@ st.write("This popular social media platform operates via websites and mobile ap
 
 st.write("My application performs a complex analysis of current Pew Research social media usage data to power an easy-to-use tool that makes instant predictions regarding a person's use of LinkedIn in particularly by conducting an in-depth examination of current Pew Research usage statistics. ")
 
-st.write("Complete the 5 questions below and....")
+st.write("Complete the 5 questions below and let the fun begin!")
 st.divider()
 
 
