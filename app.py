@@ -59,8 +59,10 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 
 # Standardize features
-scaler = StandardScaler()
-X = scaler.fit_transform(X)
+#scaled_features = scaler.transform(features)
+
+#scaler = StandardScaler()
+#X = scaler.fit_transform(X)
 
 
 # Logistic regression model 
@@ -155,28 +157,24 @@ parental_status_encoded = 1 if parental_status =='Yes' else 0
 marriage_status_encoded = 1 if marriage_status =='Yes' else 0
 female_encoded = 1 if female == 'Yes' else 0
 
-
-
-
-
-
-
-
-
 # Creating a feature vector
 features = [[income_range_encoded, education_level_encoded, parental_status_encoded, marriage_status_encoded, female_encoded, age]]
  
 
-# Predictions
-if st.button('Predict'):
-    prediction = model.predict(features)
-    if prediction[0] >= 0.6:
-        st.write('The person is likely to use LinkedIn.')
-    else:
-        st.write('The person is unlikely to use LinkedIn.')
+
+with col2:
+    if st.button('Prediction Activate'):
+        prediction = logistic_model.predict(features)
+        if prediction[0] >= 0.6:
+            st.write('The person is likely to use LinkedIn.')
+        else:
+            st.write('The person is unlikely to use LinkedIn.')
 
 
 
+
+
+ 
 
 
 
