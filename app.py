@@ -161,34 +161,24 @@ female_encoded = 1 if female == 'Yes' else 0
 features = [[income_range_encoded, education_level_encoded, parental_status_encoded, marriage_status_encoded, female_encoded, age]]
  
 
-col1, col2, col3 = st.columns([1,2,1])
+
+
+
+
  
-with col1:
-
-with col2:
-    if st.button('Prediction'):
-        prediction = logistic_model.predict(features)
-        if prediction[0] >= 0.6:
-            st.write('The person is likely to use LinkedIn.')
-        else:
-            st.write('The person is unlikely to use LinkedIn.')
-
-with col3: 
-
+# Centered button for prediction
 if st.button('Prediction'):
-
     # Make prediction
     prediction = logistic_model.predict(features)
-    
+
     # Get predicted probabilities
     proba = logistic_model.predict_proba(features)[0]
-    
+
     # Show prediction  
     if prediction[0] == 1:
         st.write(f'The model predicts the person is likely to use LinkedIn, with a probability of {proba[1]:.2%}')
     else:
         st.write(f'The model predicts the person is unlikely to use LinkedIn, with a probability of {proba[0]:.2%}')
- 
 
 
 
